@@ -20,8 +20,10 @@
     $(document).ready(function() {	
 		var _wrapWidth=$('#wrap').width();
 		var _frameWidth=$($('#frame')[0].contentDocument).width();
+		var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 		
-		_frameWidth=1062;
+		if(width<=1062)
+			_frameWidth=1062;
 		if(!this.contentLoaded)
 			this.initialWidth=_frameWidth;
 		this.contentLoaded=true;
