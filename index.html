@@ -4,7 +4,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<TITLE>easternpearlredmond</TITLE>
-	
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>		
+
         <style type="text/css">
             html, body {
                 margin:0;
@@ -13,13 +14,41 @@
                 height:100%;
                 width:100%;
             }
+			
+			</style>
+    <script>  
+    $(document).ready(function() {	
+		var _wrapWidth=$('#wrap').width();
+		var _frameWidth=$($('#frame')[0].contentDocument).width();
+		
+		_frameWidth=1062;
+		if(!this.contentLoaded)
+			this.initialWidth=_frameWidth;
+		this.contentLoaded=true;
+		var frame=$('#frame')[0];
+		alert(_wrapWidth+" "+_frameWidth);
+		var percent=_wrapWidth/this.initialWidth;
 
-</style>
+		frame.style.width=100.0/percent+"%";
+		frame.style.height=100.0/percent+"%";
+
+		frame.style.zoom=percent;
+		frame.style.webkitTransform='scale('+percent+')';
+		frame.style.webkitTransformOrigin='top left';
+		frame.style.MozTransform='scale('+percent+')';
+		frame.style.MozTransformOrigin='top left';
+		frame.style.oTransform='scale('+percent+')';
+		frame.style.oTransformOrigin='top left';
+  });		
+	</script>
+
 		</style>  </head>
   <body>
-    <iframe src="http://www.staplist.com/easternpearl" style="width:100%;margin:0;padding:0;position: absolute; height: 100%; border: none; -webkit-overflow-scrolling:touch">
+	<div id="wrap">
+    <iframe id="frame" src="http://www.staplist.com/easternpearl" style="width:100%;margin:0;padding:0;position: absolute; height: 100%; border: none; -webkit-overflow-scrolling:touch">
       <p>Your browser does not support iframes.</p>
     </iframe>
+	</div>
 	
 </body>
 
